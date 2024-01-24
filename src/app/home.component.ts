@@ -7,12 +7,14 @@ import { AppService } from './app.service';
 })
 export class HomeComponent {
   title = 'Demo';
-  greeting : any;
+  greeting : any = {"id":"", "content":""};
   constructor(private app: AppService, private http: HttpClient){
-  	http.get('resource').subscribe(data => this.greeting = data);
+  	if (this.authenticated())
+  		http.get('resource').subscribe(data => this.greeting = data);
   }
   
   authenticated(){
+    console.log(this.app.authenticated);
 	return this.app.authenticated;
   }
 }

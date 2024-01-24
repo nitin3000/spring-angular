@@ -14,7 +14,6 @@ export class AppComponent {
   title = 'Demo';
   greeting : any;
   constructor(private app: AppService, private http: HttpClient, private router: Router){
-  	this.app.authenticate(undefined, undefined);
   }
   
   logout(){
@@ -22,5 +21,10 @@ export class AppComponent {
   		this.app.authenticated = false;
   		this.router.navigateByUrl('/');
   	})).subscribe();
+  }
+  
+  authenticated(){
+    console.log(this.authenticated);
+	return this.authenticated;
   }
 }
