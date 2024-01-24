@@ -1,0 +1,28 @@
+plugins {
+  id 'java'
+  id "com.moowork.node" version "1.2.0"
+}
+
+group = 'com.springular'
+version = '0.0.1-SNAPSHOT'
+
+node {
+  version = '9.2.0'
+  npmVersion = '6.4.1'
+  download = true
+}
+
+
+java {
+	sourceCompatibility = '17'
+}
+
+jar.dependsOn 'npm_run_build'
+
+repositories {
+	mavenCentral()
+}
+
+jar {
+  from 'dist/client' into 'static'
+}

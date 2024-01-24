@@ -1,0 +1,11 @@
+	<h1>
+		Welcome {{title}}!
+	</h1>
+	<div [hidden]="!authenticated()">
+		<p>Id: <span>{{greeting.id}}</span></p>
+		<p>Message: <span>{{greeting.content}}</span></p>
+	</div>
+	<div [hidden]="authenticated()">
+		<p>Login to see your Greeting</p>
+	</div>
+	
